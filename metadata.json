@@ -1,0 +1,6 @@
+{
+  "name": "ATELIER LUMEN — Luxury Design Store & E-Commerce",
+  "description": "Premium e-commerce storefront featuring curated acoustic hardware, horology, sculptural lighting, and artisanal goods with real-time seller chat, interactive checkout, and customer accounts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

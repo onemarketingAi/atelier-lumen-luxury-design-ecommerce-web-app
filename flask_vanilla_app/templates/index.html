@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATELIER LUMEN — Luxury Design Store & E-Commerce</title>
+  <meta name="description" content="Pure Vanilla HTML5, CSS3, JS & Python Flask E-Commerce Storefront">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    Complimentary insured global courier dispatch on commissions above $150 · 5-Year Atelier Guarantee
+  </div>
+
+  <!-- Header: 3-Zone Contract -->
+  <header class="header">
+    <div class="header-inner container">
+      <!-- Zone 1: Wordmark -->
+      <a href="#" class="brand-logo" onclick="app.showPage('home')">ATELIER LUMEN</a>
+
+      <!-- Zone 2: Navigation Links -->
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active" onclick="app.showPage('home')">Home</a>
+        <a href="#catalog" class="nav-link" onclick="app.showPage('catalog')">Catalog</a>
+        <a href="#about" class="nav-link" onclick="app.showPage('about')">The Atelier</a>
+        <a href="#contact" class="nav-link" onclick="app.showPage('contact')">Showrooms</a>
+      </nav>
+
+      <!-- Zone 3: Actions -->
+      <div class="nav-actions">
+        <button class="icon-btn" onclick="app.openAuthModal()" aria-label="Sign In">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="user-label" id="user-display">Sign In</span>
+        </button>
+
+        <button class="cart-btn" onclick="app.openCart()" aria-label="Shopping Bag">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-counter">Bag (<span id="cart-count">0</span>)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- PAGE: HOME -->
+    <section id="page-home" class="page-view active">
+      
+      <!-- Full Size Image Slider: NO TEXT ON IMAGE, TOP-TO-BOTTOM SMOOTH TRANSITIONS, BOTTOM-RIGHT SWIPE CONTROLLER -->
+      <div class="hero-slider-container" id="hero-slider">
+        <!-- Vertical Image Track -->
+        <div class="hero-track" id="hero-track">
+          <div class="hero-slide">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&auto=format&fit=crop&q=80" alt="Scandinavian Lounge Interior">
+          </div>
+          <div class="hero-slide">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&auto=format&fit=crop&q=80" alt="Penthouse Architecture">
+          </div>
+          <div class="hero-slide">
+            <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1600&auto=format&fit=crop&q=80" alt="Acoustic Studio">
+          </div>
+          <div class="hero-slide">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1600&auto=format&fit=crop&q=80" alt="Horology Bench">
+          </div>
+          <div class="hero-slide">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&auto=format&fit=crop&q=80" alt="Minimalist Courtyard">
+          </div>
+        </div>
+
+        <!-- Swipe Effect Controller in Bottom Right -->
+        <div class="slider-swipe-widget">
+          <div class="swipe-counter"><span id="slide-current">01</span> / 05</div>
+          <div class="swipe-pills" id="swipe-pills">
+            <span class="pill active" onclick="app.goToSlide(0)"></span>
+            <span class="pill" onclick="app.goToSlide(1)"></span>
+            <span class="pill" onclick="app.goToSlide(2)"></span>
+            <span class="pill" onclick="app.goToSlide(3)"></span>
+            <span class="pill" onclick="app.goToSlide(4)"></span>
+          </div>
+          <div class="swipe-arrows">
+            <button class="arrow-btn" onclick="app.prevSlide()" aria-label="Slide Up">▲</button>
+            <button class="arrow-btn" onclick="app.nextSlide()" aria-label="Slide Down">▼</button>
+          </div>
+          <div class="swipe-hint">↕ Swipe</div>
+        </div>
+      </div>
+
+      <!-- Trust Bar -->
+      <div class="container trust-bar">
+        <div class="trust-item">
+          <strong>5-Year Atelier Guarantee</strong>
+          <span>Worldwide servicing and lifetime repair</span>
+        </div>
+        <div class="trust-item">
+          <strong>Numbered Studio Batches</strong>
+          <span>Small-run production from titanium and brass</span>
+        </div>
+        <div class="trust-item">
+          <strong>30-Day In-Home Trial</strong>
+          <span>Complimentary return shipping accommodated</span>
+        </div>
+      </div>
+
+      <!-- Featured Artifacts -->
+      <section class="container section">
+        <div class="section-header">
+          <div>
+            <span class="kicker">Curated Selection</span>
+            <h2 class="section-title">Featured Studio Pieces</h2>
+          </div>
+          <button class="link-btn" onclick="app.showPage('catalog')">View All Artifacts →</button>
+        </div>
+        <div class="products-grid" id="featured-grid">
+          <!-- Loaded dynamically via vanilla JS -->
+        </div>
+      </section>
+    </section>
+
+    <!-- PAGE: CATALOG -->
+    <section id="page-catalog" class="page-view container section">
+      <div class="catalog-header">
+        <div>
+          <span class="kicker">Archive Series</span>
+          <h1 class="page-title">Catalog & Objects</h1>
+        </div>
+        <div class="search-box">
+          <input type="text" id="catalog-search" placeholder="Search objects..." oninput="app.filterProducts()">
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="tab-btn active" data-cat="all" onclick="app.setCategory('all')">All Artifacts</button>
+        <button class="tab-btn" data-cat="audio" onclick="app.setCategory('audio')">Audio Hardware</button>
+        <button class="tab-btn" data-cat="lighting" onclick="app.setCategory('lighting')">Sculptural Lighting</button>
+        <button class="tab-btn" data-cat="horology" onclick="app.setCategory('horology')">Horology</button>
+        <button class="tab-btn" data-cat="leather" onclick="app.setCategory('leather')">Leather Goods</button>
+        <button class="tab-btn" data-cat="living" onclick="app.setCategory('living')">Artisanal Living</button>
+      </div>
+
+      <div class="products-grid" id="catalog-grid"></div>
+    </section>
+
+    <!-- PAGE: THE ATELIER -->
+    <section id="page-about" class="page-view container section">
+      <span class="kicker">Studio Ethos</span>
+      <h1 class="page-title">Objects engineered to age with dignity</h1>
+      <p class="prose">Founded in Zurich, Atelier Lumen creates objects unencumbered by transient trends. Every chassis is milled from solid metals, every leather strap is vegetable-tanned in Tuscany, and every circuit is serviceable for decades.</p>
+    </section>
+
+    <!-- PAGE: SHOWROOMS / CONTACT -->
+    <section id="page-contact" class="page-view container section">
+      <span class="kicker">Locations & Inquiries</span>
+      <h1 class="page-title">Showrooms & Private Auditions</h1>
+      <div class="contact-grid">
+        <div class="showroom-card">
+          <h3>New York Flagship</h3>
+          <p>94 Crosby Street, Floor 3, SoHo, New York</p>
+          <p class="muted">Tue–Sat 11:00 – 19:00 EST</p>
+        </div>
+        <div class="showroom-card">
+          <h3>Zurich Bench</h3>
+          <p>Limmatquai 42, 8001 Zürich, Switzerland</p>
+          <p class="muted">By appointment only</p>
+        </div>
+        <div class="showroom-card">
+          <h3>Gion Studio</h3>
+          <p>Higashiyama Ward, Kyoto 605-0074, Japan</p>
+          <p class="muted">Wed–Sun 12:00 – 18:00 JST</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SINGLE PRODUCT DETAIL MODAL (PDP) -->
+  <div id="pdp-modal" class="modal-backdrop">
+    <div class="modal-box pdp-box">
+      <button class="close-btn" onclick="app.closePdp()">×</button>
+      <div class="pdp-grid" id="pdp-content"></div>
+    </div>
+  </div>
+
+  <!-- SLIDE-OVER CART DRAWER -->
+  <div id="cart-drawer" class="cart-drawer-backdrop">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3>Shopping Bag</h3>
+        <button class="close-btn" onclick="app.closeCart()">×</button>
+      </div>
+      <div class="cart-body" id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-summary">
+          <span>Subtotal:</span>
+          <strong id="cart-subtotal">$0</strong>
+        </div>
+        <button class="btn btn-primary" onclick="app.openCheckout()">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkout-modal" class="modal-backdrop">
+    <div class="modal-box checkout-box">
+      <button class="close-btn" onclick="app.closeCheckout()">×</button>
+      <h2>Secure Commission Checkout</h2>
+      <form id="checkout-form" onsubmit="app.handleCheckout(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="ship-name" required value="Alexandria Vance">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="ship-email" required value="alex.vance@example.com">
+        </div>
+        <div class="form-group">
+          <label>Delivery Address</label>
+          <input type="text" id="ship-addr" required value="742 Evergreen Terrace, Apt 4B">
+        </div>
+        <div class="form-group">
+          <label>Payment Method</label>
+          <select id="pay-method">
+            <option value="Credit Card">Credit Card (Ending in 4242)</option>
+            <option value="Apple Pay">Apple Pay / Biometric</option>
+            <option value="Cash on Delivery">Cash on Delivery / Studio Wire</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Authorize Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LIVE SELLER CHAT WIDGET -->
+  <div class="chat-launcher" onclick="app.toggleChat()">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
+    <span class="chat-online-dot"></span>
+  </div>
+
+  <div id="chat-box" class="chat-window">
+    <div class="chat-header">
+      <div>
+        <strong>Marcus Vance</strong>
+        <span class="chat-sub">Master Artisan · Active</span>
+      </div>
+      <button class="close-btn" onclick="app.toggleChat()">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <form class="chat-input-bar" onsubmit="app.sendChatMessage(event)">
+      <input type="text" id="chat-input" placeholder="Ask Marcus about objects, shipping..." required>
+      <button type="submit" class="btn btn-send">Send</button>
+    </form>
+  </div>
+
+  <!-- Vanilla JavaScript App Engine -->
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
